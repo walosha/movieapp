@@ -1,10 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-
 import Ratings from "react-star-ratings";
 
 import Error404 from "../images/error404.jpeg";
-
 import { fetchPosts } from "../actions";
 import {
   MovieContentStyles,
@@ -17,8 +15,10 @@ import {
 
 const Movie = props => {
   const renderList = () => {
-    if (props.movies.search) {
-      return props.movies.search.map(movie => {
+    const movies = props.movies.search;
+    console.log(movies);
+    if (movies.length > 0) {
+      return movies.map(movie => {
         return (
           <WrappedMovieCardLink key={movie.id} to={"/:400"}>
             <MovieImage
@@ -46,8 +46,17 @@ const Movie = props => {
         );
       });
     }
+
+    if (movies.length === 0) {
+      return (
+        <>
+          <MovieTitle>NO MOVIE FOUND </MovieTitle>
+        </>
+      );
+    }
     return "LOADING....";
   };
+
   return <MovieContentStyles>{renderList()}</MovieContentStyles>;
 };
 

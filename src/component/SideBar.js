@@ -5,6 +5,7 @@ import { fetchGenres } from "../actions";
 import { SideBarContainer } from "./SideBar.styles";
 import {
   CreatorImage,
+  GenreItemHeading,
   GenreItem,
   CreatorBox,
   GenreBox
@@ -31,7 +32,10 @@ class SideBar extends React.Component {
         <CreatorBox>
           <CreatorImage />
         </CreatorBox>
-        <GenreBox>{this.RenderList()}</GenreBox>
+        <GenreBox>
+          <GenreItemHeading>MOVIE GENRES</GenreItemHeading>
+          {this.RenderList()}
+        </GenreBox>
       </SideBarContainer>
     );
   }

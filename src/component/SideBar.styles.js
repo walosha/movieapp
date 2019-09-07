@@ -18,6 +18,16 @@ export const GenreBox = styled.div`
   flex-direction: column;
 `;
 
+export const GenreItemHeading = styled.h4`
+  font-size: 1.5rem;
+  font-weight: 700;
+  align-self: stretch;
+  text-align: center;
+  padding: 1.5rem 4rem;
+  color: black;
+  background-color: #fff;
+`;
+
 export const GenreItem = styled.a`
   text-decoration: none;
   text-transform: uppercase;
@@ -27,7 +37,7 @@ export const GenreItem = styled.a`
   align-self: stretch;
   text-align: center;
   border-radius: 3px;
-  padding: 1.7rem 5rem;
+  padding: 1.9rem 5rem;
   transform: scaleY(1);
   transition: transform 0.3s;
 
