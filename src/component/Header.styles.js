@@ -37,3 +37,5 @@ export const HeaderInput = styled.input.attrs(props => ({
     text-transform: uppercase;
   }
 `;
+
+export const SubmitButton = styled.button``;

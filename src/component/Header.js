@@ -1,6 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { HeaderStyles, FormInput, HeaderInput } from "./Header.styles";
+import {
+  HeaderStyles,
+  FormInput,
+  HeaderInput,
+  SubmitButton
+} from "./Header.styles";
 import { fetchSearch } from "../actions";
 
 class Header extends Component {
@@ -20,6 +25,7 @@ class Header extends Component {
             value={this.state.search}
             onChange={e => this.setState({ search: e.target.value })}
           />
+          <SubmitButton onSubmit={this.onSubmit}>Click</SubmitButton>
         </FormInput>
       </HeaderStyles>
     );

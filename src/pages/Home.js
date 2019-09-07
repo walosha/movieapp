@@ -10,7 +10,7 @@ export const Home = () => {
   return (
     <ContainerStyles>
       <Header />
-      <SideBar>Olawale</SideBar>
+      <SideBar />
       <Movie />
       <Footer />
     </ContainerStyles>

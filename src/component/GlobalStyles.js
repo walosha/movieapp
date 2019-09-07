@@ -8,6 +8,10 @@ html{
     font-family: 'Open Sans', 'Roboto Mono', sans-serif;
 }
 
+#root{
+  height:100%;
+}
+
 *,
 *::before,
 *::after{
@@ -18,6 +22,7 @@ html{
 
 body{
   box-sizing:border-box;
+  height:400rem;
   
 }`;
 

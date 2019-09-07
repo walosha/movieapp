@@ -17,44 +17,34 @@ const Movie = props => {
   const renderList = () => {
     const movies = props.movies.search;
     console.log(movies);
-    if (movies.length > 0) {
-      return movies.map(movie => {
-        return (
-          <WrappedMovieCardLink key={movie.id} to={"/:400"}>
-            <MovieImage
-              alt={movie.title}
-              image={
-                movie.poster_path === null
-                  ? Error404
-                  : ` https://image.tmdb.org/t/p/w500${movie.poster_path}`
-              }
-            />
-            <MovieDetail>
-              <MovieTitle>{movie.title}</MovieTitle>
-              <MovieAdult>
-                {movie.adult ? "Adult Movie" : "Family Movie"}
-              </MovieAdult>
-              <Ratings
-                rating={Math.ceil(movie.vote_average / 2)}
-                starRatedcolor="red"
-                numberOfStars={5}
-                starDimension="2rem"
-                name="rating"
-              />
-            </MovieDetail>
-          </WrappedMovieCardLink>
-        );
-      });
-    }
 
-    if (movies.length === 0) {
+    return movies.map(movie => {
       return (
-        <>
-          <MovieTitle>NO MOVIE FOUND </MovieTitle>
-        </>
+        <WrappedMovieCardLink key={movie.id} to={"/:400"}>
+          <MovieImage
+            alt={movie.title}
+            image={
+              movie.poster_path === null
+                ? Error404
+                : ` https://image.tmdb.org/t/p/w500${movie.poster_path}`
+            }
+          />
+          <MovieDetail>
+            <MovieTitle>{movie.title}</MovieTitle>
+            <MovieAdult>
+              {movie.adult ? "Adult Movie" : "Family Movie"}
+            </MovieAdult>
+            <Ratings
+              rating={Math.ceil(movie.vote_average / 2)}
+              starRatedcolor="red"
+              numberOfStars={5}
+              starDimension="2rem"
+              name="rating"
+            />
+          </MovieDetail>
+        </WrappedMovieCardLink>
       );
-    }
-    return "LOADING....";
+    });
   };
 
   return <MovieContentStyles>{renderList()}</MovieContentStyles>;
