@@ -26,4 +26,4 @@ WESTERN
 
 BELOW IS THE PREVIEW OF THE SITE
 
-('./src/images/site-preview.png')
+(./src/images/site-preview.png)
