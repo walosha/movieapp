@@ -1,9 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
 import Ratings from "react-star-ratings";
-
+import { connect } from "react-redux";
+import { fetchMovies } from "../actions";
 import Error404 from "../images/error404.jpeg";
-import { fetchPosts } from "../actions";
+import Loader from "./Loader";
+
 import {
   MovieContentStyles,
   WrappedMovieCardLink,
@@ -13,42 +14,64 @@ import {
   MovieAdult
 } from "./Movie.styles";
 
-const Movie = props => {
-  const renderList = () => {
-    const movies = props.movies.search;
-    console.log(movies);
+class Movie extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { sortedMovies: [] };
+  }
+  componentDidMount() {
+    this.props.fetchMovies();
+  }
 
-    return movies.map(movie => {
-      return (
-        <WrappedMovieCardLink key={movie.id} to={"/:400"}>
-          <MovieImage
-            alt={movie.title}
-            image={
-              movie.poster_path === null
-                ? Error404
-                : ` https://image.tmdb.org/t/p/w500${movie.poster_path}`
-            }
-          />
-          <MovieDetail>
-            <MovieTitle>{movie.title}</MovieTitle>
-            <MovieAdult>
-              {movie.adult ? "Adult Movie" : "Family Movie"}
-            </MovieAdult>
-            <Ratings
-              rating={Math.ceil(movie.vote_average / 2)}
-              starRatedcolor="red"
-              numberOfStars={5}
-              starDimension="2rem"
-              name="rating"
+  componentDidUpdate(prevoiusProps, prevoiusState) {
+    if (prevoiusProps.movies.movies !== this.props.movies.movies) {
+      this.setState({ sortedMovies: this.props.movies.movies });
+    }
+    if (
+      this.props.movies.search &&
+      prevoiusProps.movies.search !== this.props.movies.search
+    ) {
+      this.setState({ sortedMovies: this.props.movies.search });
+    }
+  }
+
+  renderList() {
+    if (this.props) {
+      return this.state.sortedMovies.map(movie => {
+        const { id, title, poster_path, adult, vote_average } = movie;
+        return (
+          <WrappedMovieCardLink key={id} to={"/:400"}>
+            <MovieImage
+              alt={title}
+              image={
+                poster_path === null
+                  ? Error404
+                  : ` https://image.tmdb.org/t/p/w500${poster_path}`
+              }
             />
-          </MovieDetail>
-        </WrappedMovieCardLink>
-      );
-    });
-  };
+            <MovieDetail>
+              <MovieTitle>{title}</MovieTitle>
+              <MovieAdult>{adult ? "Adult Movie" : "Family Movie"}</MovieAdult>
+              <Ratings
+                rating={Math.ceil(vote_average / 2) || 0}
+                starRatedcolor="red"
+                numberOfStars={5}
+                starDimension="2rem"
+                name="rating"
+              />
+            </MovieDetail>
+          </WrappedMovieCardLink>
+        );
+      });
+    } else {
+      return <Loader></Loader>;
+    }
+  }
 
-  return <MovieContentStyles>{renderList()}</MovieContentStyles>;
-};
+  render() {
+    return <MovieContentStyles>{this.renderList()}</MovieContentStyles>;
+  }
+}
 
 const mapStateToProps = state => {
   return { movies: state };
@@ -56,5 +79,21 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { fetchPosts }
+  { fetchMovies }
 )(Movie);
+
+// render() {
+//   console.log(this.props);
+//   return (
+//     <MovieContentStyles>
+//       <WrappedMovieCardLink>
+//         <MovieImage />
+//         <MovieDetail>
+//           <MovieTitle></MovieTitle>
+//           <MovieAdult></MovieAdult>
+//           <Ratings />
+//         </MovieDetail>
+//       </WrappedMovieCardLink>
+//     </MovieContentStyles>
+//   );
+// }

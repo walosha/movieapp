@@ -6,13 +6,13 @@ import Header from "../component/Header";
 import SideBar from "../component/SideBar";
 import { Footer } from "../component/Footer";
 
-export const Home = () => {
+export default function Home() {
   return (
     <ContainerStyles>
-      <Header />
+      <Header updateState={this.updateState} />
       <SideBar />
-      <Movie />
+      <Movie></Movie>
       <Footer />
     </ContainerStyles>
   );
-};
+}

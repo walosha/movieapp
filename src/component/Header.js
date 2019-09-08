@@ -9,7 +9,7 @@ import {
 import { fetchSearch } from "../actions";
 
 class Header extends Component {
-  state = { search: [] };
+  state = { search: "" };
 
   onSubmit = e => {
     e.preventDefault();
@@ -32,11 +32,7 @@ class Header extends Component {
   }
 }
 
-const mapStateToProps = state => {
-  return { movies: state.search };
-};
-
 export default connect(
-  mapStateToProps,
+  null,
   { fetchSearch }
 )(Header);

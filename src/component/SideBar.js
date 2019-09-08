@@ -16,16 +16,12 @@ class SideBar extends React.Component {
     this.props.fetchGenres();
   }
 
-  RenderList() {
-    const genres = this.props.state.genres;
-    if (genres) {
-      return genres.map(genre => {
-        return <GenreItem key={genre.id}>{genre.name}</GenreItem>;
-      });
-    }
+  RenderList = () => {
+    return this.props.state.genres.map(genre => {
+      return <GenreItem key={genre.id}>{genre.name}</GenreItem>;
+    });
+  };
 
-    return <GenreItem>LOADING</GenreItem>;
-  }
   render() {
     return (
       <SideBarContainer>
@@ -33,7 +29,7 @@ class SideBar extends React.Component {
           <CreatorImage />
         </CreatorBox>
         <GenreBox>
-          <GenreItemHeading>MOVIE GENRES</GenreItemHeading>
+          <GenreItemHeading> GENRES</GenreItemHeading>
           {this.RenderList()}
         </GenreBox>
       </SideBarContainer>

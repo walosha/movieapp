@@ -1,12 +1,12 @@
 import { MovieDb } from "../api/MovieDb";
 const apiKey = "89b017430838e765ec1f58f8bce2b786";
 
-const fetchPosts = () => {
+const fetchMovies = () => {
   return async dispatch => {
     const response = await MovieDb.get("/3/trending/all/day?", {
       params: {
         api_key: apiKey,
-        page: 2
+        page: 1
       }
     });
 
@@ -36,7 +36,6 @@ const fetchSearch = query => {
         page: 1
       }
     });
-
     dispatch({ type: "FETCH_SEARCH", payload: response.data.results });
   };
 };
@@ -53,4 +52,4 @@ const fetchMovieDetails = query => {
   };
 };
 
-export { fetchPosts, fetchGenres, fetchSearch, fetchMovieDetails };
+export { fetchMovies, fetchGenres, fetchSearch, fetchMovieDetails };

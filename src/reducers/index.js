@@ -1,6 +1,6 @@
 import { combineReducers } from "redux";
 
-const posts = (state = [], action) => {
+const movies = (state = [], action) => {
   switch (action.type) {
     case "FETCH_MOVIES":
       return action.payload;
@@ -37,7 +37,7 @@ const movieDetails = (state = [], action) => {
 };
 
 export const reducers = combineReducers({
-  posts,
+  movies,
   genres,
   search,
   movieDetails
