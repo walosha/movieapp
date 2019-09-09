@@ -23,14 +23,11 @@ class Movie extends React.Component {
     this.props.fetchMovies();
   }
 
-  componentDidUpdate(prevoiusProps, prevoiusState) {
+  componentDidUpdate(prevoiusProps) {
     if (prevoiusProps.movies.movies !== this.props.movies.movies) {
       this.setState({ sortedMovies: this.props.movies.movies });
     }
-    if (
-      this.props.movies.search &&
-      prevoiusProps.movies.search !== this.props.movies.search
-    ) {
+    if (prevoiusProps.movies.search !== this.props.movies.search) {
       this.setState({ sortedMovies: this.props.movies.search });
     }
   }
@@ -81,19 +78,3 @@ export default connect(
   mapStateToProps,
   { fetchMovies }
 )(Movie);
-
-// render() {
-//   console.log(this.props);
-//   return (
-//     <MovieContentStyles>
-//       <WrappedMovieCardLink>
-//         <MovieImage />
-//         <MovieDetail>
-//           <MovieTitle></MovieTitle>
-//           <MovieAdult></MovieAdult>
-//           <Ratings />
-//         </MovieDetail>
-//       </WrappedMovieCardLink>
-//     </MovieContentStyles>
-//   );
-// }
