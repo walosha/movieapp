@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { fetchGenres } from "../actions";
-
+import { NavLink } from "react-router-dom";
 import { SideBarContainer } from "./SideBar.styles";
 import {
   CreatorImage,
@@ -16,13 +16,18 @@ class SideBar extends React.Component {
     this.props.fetchGenres();
   }
 
-  RenderList = () => {
+  renderGenres = () => {
     return this.props.state.genres.map(genre => {
-      return <GenreItem key={genre.id}>{genre.name}</GenreItem>;
+      return (
+        <GenreItem key={genre.id}>
+          <NavLink to={`/genres/${genre.id}`}>{genre.name}</NavLink>
+        </GenreItem>
+      );
     });
   };
 
   render() {
+    console.log(this.props);
     return (
       <SideBarContainer>
         <CreatorBox>
@@ -30,7 +35,10 @@ class SideBar extends React.Component {
         </CreatorBox>
         <GenreBox>
           <GenreItemHeading> GENRES</GenreItemHeading>
-          {this.RenderList()}
+          {/* {this.renderGenres()} */}
+          <GenreItem>music</GenreItem>
+          <GenreItem>music</GenreItem>
+          <GenreItem>music</GenreItem>
         </GenreBox>
       </SideBarContainer>
     );

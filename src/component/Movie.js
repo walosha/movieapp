@@ -35,11 +35,11 @@ class Movie extends React.Component {
   renderList() {
     if (this.props) {
       return this.state.sortedMovies.map(movie => {
-        const { id, title, poster_path, adult, vote_average } = movie;
+        const { id, original_title, poster_path, adult, vote_average } = movie;
         return (
           <WrappedMovieCardLink key={id} to={"/:400"}>
             <MovieImage
-              alt={title}
+              alt={original_title}
               image={
                 poster_path === null
                   ? Error404
@@ -47,7 +47,7 @@ class Movie extends React.Component {
               }
             />
             <MovieDetail>
-              <MovieTitle>{title}</MovieTitle>
+              <MovieTitle>{original_title}</MovieTitle>
               <MovieAdult>{adult ? "Adult Movie" : "Family Movie"}</MovieAdult>
               <Ratings
                 rating={Math.ceil(vote_average / 2) || 0}

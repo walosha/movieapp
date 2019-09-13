@@ -6,11 +6,12 @@ import Header from "../component/Header";
 import SideBar from "../component/SideBar";
 import { Footer } from "../component/Footer";
 
-export default function Home() {
+export default function Home(props) {
+  console.log(props);
   return (
     <ContainerStyles>
       <Header />
-      <SideBar />
+      <SideBar {...props} />
       <Movie></Movie>
       <Footer />
     </ContainerStyles>

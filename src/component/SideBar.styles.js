@@ -28,7 +28,7 @@ export const GenreItemHeading = styled.h4`
   background-color: #fff;
 `;
 
-export const GenreItem = styled.a`
+export const GenreItem = styled.li`
   text-decoration: none;
   text-transform: uppercase;
   font-size: 1.2rem;
@@ -38,15 +38,16 @@ export const GenreItem = styled.a`
   text-align: center;
   border-radius: 3px;
   padding: 1.9rem 5rem;
-  transform: scaleY(1);
-  transition: transform 0.3s;
+  transform: scaleX(1);
+  transition: all 7s;
 
   &:hover {
     color: black;
     background-color: #f5f5f5;
     border-bottom: 1px solid white;
     cursor: pointer;
-    transform: scaleY(1.2);
+    transform: scaleX(1.1);
+    transform-origin: 0%;
   }
 `;
 

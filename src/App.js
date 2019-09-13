@@ -11,6 +11,7 @@ class App extends React.Component {
         <Container />
         <Switch>
           <Route path="/" exact component={Home} />
+          <Route path="/genres/:id" exact component={Home} />
           <Route path="/:movie" exact component={SingleMovie} />
         </Switch>
       </Router>

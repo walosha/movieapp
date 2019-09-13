@@ -20,6 +20,13 @@ html{
     padding:0;
 }
 
+a,button{
+ background-color:transparent;
+ outline:none;
+ border:none;
+ text-decoration:none;
+  
+}
 body{
   box-sizing:border-box;
   height:400rem;
