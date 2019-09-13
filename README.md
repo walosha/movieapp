@@ -26,4 +26,5 @@ WESTERN
 
 BELOW IS THE PREVIEW OF THE SITE
 
-This project was bootstrapped with [Create React App](./src/images/site-preview.png)
+This project was bootstrapped with ![Create React App](./src/images/site-preview.png)
+
