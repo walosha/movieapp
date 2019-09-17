@@ -28,7 +28,7 @@ export const GenreItemHeading = styled.h4`
   background-color: #fff;
 `;
 
-export const GenreItem = styled.li`
+export const GenreItem = styled.a`
   text-decoration: none;
   text-transform: uppercase;
   font-size: 1.2rem;
@@ -39,7 +39,7 @@ export const GenreItem = styled.li`
   border-radius: 3px;
   padding: 1.9rem 5rem;
   transform: scaleX(1);
-  transition: all 7s;
+  transition: all 0.3s;
 
   &:hover {
     color: black;

@@ -27,6 +27,22 @@ const fetchGenres = () => {
   };
 };
 
+const discoverMovies = query => {
+  return async dispatch => {
+    const response = await MovieDb.get("/3/discover/movie?", {
+      params: {
+        with_genres: query,
+        api_key: apiKey,
+        page: 1
+      }
+    });
+    dispatch({
+      type: "FETCH_DISCOVER_MOVIES",
+      payload: response.data.results
+    });
+  };
+};
+
 const fetchSearch = query => {
   return async dispatch => {
     const response = await MovieDb.get("/3/search/movie?", {
@@ -52,4 +68,10 @@ const fetchMovieDetails = query => {
   };
 };
 
-export { fetchMovies, fetchGenres, fetchSearch, fetchMovieDetails };
+export {
+  fetchMovies,
+  fetchGenres,
+  fetchSearch,
+  fetchMovieDetails,
+  discoverMovies
+};

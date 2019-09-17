@@ -38,4 +38,14 @@ export const HeaderInput = styled.input.attrs(props => ({
   }
 `;
 
-export const SubmitButton = styled.button``;
+export const SubmitButton = styled.button`
+  outline: none;
+  border: none;
+  border-radius: 0.8rem;
+  background-color: black;
+  color: white;
+  font-size: 2rem;
+  padding: 1rem;
+  font-weight: 500;
+  transform: translateX(-3rem);
+`;

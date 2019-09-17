@@ -36,9 +36,19 @@ const movieDetails = (state = [], action) => {
   }
 };
 
+const discoverMovies = (state = [], action) => {
+  switch (action.type) {
+    case "FETCH_DISCOVER_MOVIES":
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 export const reducers = combineReducers({
   movies,
   genres,
   search,
-  movieDetails
+  movieDetails,
+  discoverMovies
 });

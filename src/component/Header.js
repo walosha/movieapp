@@ -7,6 +7,8 @@ import {
   SubmitButton
 } from "./Header.styles";
 import { fetchSearch } from "../actions";
+import { signInwithGoogle } from "../auth/firebase.utils";
+import { Button } from "./Button";
 
 class Header extends Component {
   state = { search: "" };
@@ -25,8 +27,9 @@ class Header extends Component {
             value={this.state.search}
             onChange={e => this.setState({ search: e.target.value })}
           />
-          <SubmitButton onSubmit={this.onSubmit}>Click</SubmitButton>
+          <SubmitButton onSubmit={this.onSubmit}>Submit</SubmitButton>
         </FormInput>
+        <Button onClick={signInwithGoogle}>Sign in</Button>
       </HeaderStyles>
     );
   }

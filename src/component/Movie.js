@@ -30,6 +30,12 @@ class Movie extends React.Component {
     if (prevoiusProps.movies.search !== this.props.movies.search) {
       this.setState({ sortedMovies: this.props.movies.search });
     }
+
+    if (
+      prevoiusProps.movies.discoverMovies !== this.props.movies.discoverMovies
+    ) {
+      this.setState({ sortedMovies: this.props.movies.discoverMovies });
+    }
   }
 
   renderList() {

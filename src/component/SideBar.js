@@ -1,7 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
-import { fetchGenres } from "../actions";
-import { NavLink } from "react-router-dom";
+import { fetchGenres, discoverMovies } from "../actions";
+// import { NavLink } from "react-router-dom";
+
 import { SideBarContainer } from "./SideBar.styles";
 import {
   CreatorImage,
@@ -16,11 +17,18 @@ class SideBar extends React.Component {
     this.props.fetchGenres();
   }
 
+  fetchGenresCollection = id => {
+    this.props.discoverMovies(id);
+  };
+
   renderGenres = () => {
     return this.props.state.genres.map(genre => {
       return (
-        <GenreItem key={genre.id}>
-          <NavLink to={`/genres/${genre.id}`}>{genre.name}</NavLink>
+        <GenreItem
+          onClick={() => this.fetchGenresCollection(genre.id)}
+          key={genre.id}
+        >
+          <div>{genre.name}</div>
         </GenreItem>
       );
     });
@@ -35,10 +43,8 @@ class SideBar extends React.Component {
         </CreatorBox>
         <GenreBox>
           <GenreItemHeading> GENRES</GenreItemHeading>
-          {/* {this.renderGenres()} */}
-          <GenreItem>music</GenreItem>
-          <GenreItem>music</GenreItem>
-          <GenreItem>music</GenreItem>
+
+          {this.renderGenres()}
         </GenreBox>
       </SideBarContainer>
     );
@@ -51,5 +57,5 @@ const mapStatetoProps = state => {
 
 export default connect(
   mapStatetoProps,
-  { fetchGenres }
+  { fetchGenres, discoverMovies }
 )(SideBar);
