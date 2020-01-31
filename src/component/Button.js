@@ -9,4 +9,8 @@ export const Button = styled.button`
   font-size: 2rem;
   padding: 0.4rem;
   font-weight: 500;
+
+  @media (max-width: 600px) {
+    right: 7%;
+  }
 `;
