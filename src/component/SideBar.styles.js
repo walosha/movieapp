@@ -4,12 +4,16 @@ import ProfilePix from "../images/pic.jpg";
 export const SideBarContainer = styled.nav`
   color: white;
   grid-column: 1/2;
-  grid-row: 2/-1;
+  grid-row: 1/-1;
   background-color: whitesmoke;
   display: grid;
   grid-row-gap: 5rem;
   grid-template-rows: 10rem max-content 10rem;
   background-color: black;
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 export const GenreBox = styled.div`

@@ -7,8 +7,6 @@ import {
   SubmitButton
 } from "./Header.styles";
 import { fetchSearch } from "../actions";
-import { signInwithGoogle } from "../auth/firebase.utils";
-import { Button } from "./Button";
 
 class Header extends Component {
   state = { search: "" };
@@ -29,13 +27,9 @@ class Header extends Component {
           />
           <SubmitButton onSubmit={this.onSubmit}>Submit</SubmitButton>
         </FormInput>
-        <Button onClick={signInwithGoogle}>Sign in</Button>
       </HeaderStyles>
     );
   }
 }
 
-export default connect(
-  null,
-  { fetchSearch }
-)(Header);
+export default connect(null, { fetchSearch })(Header);

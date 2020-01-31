@@ -6,6 +6,7 @@ export const HeaderStyles = styled.nav`
   background-color: whitesmoke;
   display: grid;
   grid-template-columns: 1fr 70vw 1fr;
+  padding: 2rem;
 `;
 
 export const FormInput = styled.form`
@@ -15,21 +16,21 @@ export const FormInput = styled.form`
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 `;
 export const HeaderInput = styled.input.attrs(props => ({
   placeholder: "search for movies"
 }))`
   width: 50%;
-  height: 3rem;
+  height: 5rem;
   border: none;
   border-radius: 1rem;
   transition: width 1s;
   text-align: center;
 
   &:focus {
-    width: 60%;
     outline: none;
-    border-bottom: 2px solid black;
+    border: 2px groove black;
   }
 
   ::placeholder {
@@ -40,12 +41,15 @@ export const HeaderInput = styled.input.attrs(props => ({
 
 export const SubmitButton = styled.button`
   outline: none;
-  border: none;
-  border-radius: 0.8rem;
+  box-shadow: 0px 2px 7px 0px black;
+  border-radius: 3.8rem;
   background-color: black;
   color: white;
   font-size: 2rem;
   padding: 1rem;
   font-weight: 500;
-  transform: translateX(-3rem);
+  position: absolute;
+  top: 3%;
+  right: 22%;
+  cursor: pointer;
 `;

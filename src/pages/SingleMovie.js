@@ -12,10 +12,8 @@ class SingleMovie extends Component {
 }
 
 const mapStateToprops = state => {
+  console.log(state);
   return { singleMovie: state.movieDetails };
 };
 
-export default connect(
-  mapStateToprops,
-  { fetchMovieDetails }
-)(SingleMovie);
+export default connect(mapStateToprops, { fetchMovieDetails })(SingleMovie);

@@ -35,7 +35,6 @@ class SideBar extends React.Component {
   };
 
   render() {
-    console.log(this.props);
     return (
       <SideBarContainer>
         <CreatorBox>
@@ -55,7 +54,6 @@ const mapStatetoProps = state => {
   return { state };
 };
 
-export default connect(
-  mapStatetoProps,
-  { fetchGenres, discoverMovies }
-)(SideBar);
+export default connect(mapStatetoProps, { fetchGenres, discoverMovies })(
+  SideBar
+);

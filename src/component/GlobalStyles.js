@@ -29,7 +29,7 @@ a,button{
 }
 body{
   box-sizing:border-box;
-  height:400rem;
+  width:100vw;
   
 }`;
 

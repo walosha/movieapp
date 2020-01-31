@@ -9,6 +9,11 @@ export const MovieContentStyles = styled.main`
   display: grid;
   padding: 4rem 4rem;
   grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+
+  @media (max-width: 600px) {
+    grid-column: 1/-1;
+    grid-template-columns: repeat(auto-fit, minmax(23rem, 1fr));
+  }
 `;
 
 export const WrappedMovieCardLink = styled(Link)`
