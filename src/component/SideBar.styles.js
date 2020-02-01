@@ -9,11 +9,7 @@ export const SideBarContainer = styled.nav`
   display: grid;
   grid-row-gap: 5rem;
   grid-template-rows: 10rem max-content 10rem;
-  background-color: black;
-
-  @media (max-width: 600px) {
-    display: none;
-  }
+  background-color: #e33812;
 `;
 
 export const GenreBox = styled.div`

@@ -1,4 +1,5 @@
 import React from "react";
+import ReactSidebar from "react-sidebar";
 import { connect } from "react-redux";
 import { fetchGenres, discoverMovies } from "../actions";
 // import { NavLink } from "react-router-dom";
@@ -17,10 +18,6 @@ class SideBar extends React.Component {
     this.props.fetchGenres();
   }
 
-  fetchGenresCollection = id => {
-    this.props.discoverMovies(id);
-  };
-
   renderGenres = () => {
     return this.props.state.genres.map(genre => {
       return (
@@ -34,18 +31,32 @@ class SideBar extends React.Component {
     });
   };
 
-  render() {
-    return (
-      <SideBarContainer>
-        <CreatorBox>
-          <CreatorImage />
-        </CreatorBox>
-        <GenreBox>
-          <GenreItemHeading> GENRES</GenreItemHeading>
+  fetchGenresCollection = id => {
+    this.props.discoverMovies(id);
+  };
 
-          {this.renderGenres()}
-        </GenreBox>
-      </SideBarContainer>
+  render() {
+    console.log("SideBar", this.props);
+    return (
+      <ReactSidebar
+        overlayId="overlayId"
+        sidebar={
+          <SideBarContainer>
+            <CreatorBox>
+              <CreatorImage />
+            </CreatorBox>
+            <GenreBox>
+              <GenreItemHeading> GENRES</GenreItemHeading>
+              {this.renderGenres()}
+            </GenreBox>
+          </SideBarContainer>
+        }
+        open={this.props.sidebarOpen}
+        docked={this.props.sidebarDocked}
+        onSetOpen={this.props.setSidebarOpen}
+      >
+        {this.props.children}
+      </ReactSidebar>
     );
   }
 }

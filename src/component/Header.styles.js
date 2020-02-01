@@ -43,7 +43,7 @@ export const SubmitButton = styled.button`
   outline: none;
   box-shadow: 0px 2px 7px 0px black;
   border-radius: 3.8rem;
-  background-color: black;
+  background-color: #e33812;
   color: white;
   font-size: 2rem;
   padding: 1rem;

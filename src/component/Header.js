@@ -6,6 +6,7 @@ import {
   HeaderInput,
   SubmitButton
 } from "./Header.styles";
+import Menu from "../images/menu.png";
 import { fetchSearch } from "../actions";
 
 class Header extends Component {
@@ -20,6 +21,16 @@ class Header extends Component {
   render() {
     return (
       <HeaderStyles>
+        <button
+          style={{ height: "4rem", width: "4rem" }}
+          onClick={() => this.props.setSidebarOpen(this.props.setSidebarOpen)}
+        >
+          <img
+            style={{ height: "100%", width: "100%" }}
+            alt="menu bar "
+            src={Menu}
+          />
+        </button>
         <FormInput onSubmit={this.onSubmit}>
           <HeaderInput
             value={this.state.search}
