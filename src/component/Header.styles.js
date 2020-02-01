@@ -53,3 +53,9 @@ export const SubmitButton = styled.button`
   right: 22%;
   cursor: pointer;
 `;
+
+export const MenuButton = styled.button`
+  @media (min-width: 800px) {
+    display: none;
+  }
+`;

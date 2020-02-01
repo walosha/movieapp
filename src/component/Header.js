@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import {
   HeaderStyles,
   FormInput,
+  MenuButton,
   HeaderInput,
   SubmitButton
 } from "./Header.styles";
@@ -21,7 +22,7 @@ class Header extends Component {
   render() {
     return (
       <HeaderStyles>
-        <button
+        <MenuButton
           style={{ height: "4rem", width: "4rem" }}
           onClick={() => this.props.setSidebarOpen(this.props.setSidebarOpen)}
         >
@@ -30,7 +31,7 @@ class Header extends Component {
             alt="menu bar "
             src={Menu}
           />
-        </button>
+        </MenuButton>
         <FormInput onSubmit={this.onSubmit}>
           <HeaderInput
             value={this.state.search}

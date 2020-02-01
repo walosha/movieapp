@@ -22,7 +22,10 @@ class SideBar extends React.Component {
     return this.props.state.genres.map(genre => {
       return (
         <GenreItem
-          onClick={() => this.fetchGenresCollection(genre.id)}
+          onClick={() => {
+            this.props.setSidebarOpen();
+            this.fetchGenresCollection(genre.id);
+          }}
           key={genre.id}
         >
           <div>{genre.name}</div>
@@ -36,7 +39,6 @@ class SideBar extends React.Component {
   };
 
   render() {
-    console.log("SideBar", this.props);
     return (
       <ReactSidebar
         overlayId="overlayId"
